@@ -17,7 +17,6 @@
 
 .item__image {
     position: relative;
-    /* background-color: aquamarine; */
 }
 
 .item__image__loupe {
@@ -30,5 +29,8 @@
 
 .item__image__loupe img {
     width: 1rem;
+}
 
+.item__title {
+    font-size: var(--grid-item-name-size);
 }
