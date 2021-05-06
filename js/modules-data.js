@@ -6,7 +6,8 @@ export const itemTypes = ['zielone', 'niebieskie', 'żółte'];
 
 export const data = [{
         title: 'Moduł 1',
-        moduleType: moduleTypes[1],
+        moduleType: moduleTypes[0],
+        edited: false,
         items: [{
                 itemName: 'Item 1',
                 itemType: itemTypes[1],
@@ -68,6 +69,7 @@ export const data = [{
     {
         title: 'Moduł 2',
         moduleType: moduleTypes[2],
+        edited: true,
         items: [{
                 itemName: 'Item 1',
                 itemType: itemTypes[1],
@@ -108,6 +110,7 @@ export const data = [{
     {
         title: 'Moduł 3',
         moduleType: moduleTypes[0],
+        edited: false,
         items: [{
                 itemName: 'Item 1',
                 itemType: itemTypes[1],

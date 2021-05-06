@@ -17,11 +17,9 @@ const pickedItemThumbnail = _ => {
     return data[0].items[0].itemThumbnailURL
 }
 
-let markup = '';
-
 const generateModuleMarkup = moduleIndex => {
 
-const moduleNumber = moduleIndex+1;
+    const moduleNumber = moduleIndex + 1;
 
     const generateFilter = _ => {
 
@@ -68,18 +66,18 @@ const moduleNumber = moduleIndex+1;
     if (data[moduleIndex].moduleType === moduleTypes[2]) {
         return `
         
-        <article class="module__box module__type__one">
-        <div class="module__nav module__type__one__nav">
-            <div class="module__type__one__nav__left">
-                <div class="module__title">
+        <article class="module__box module__type__three">
+        <div class="module__nav module__type__three__nav">
+            
+                <div class="module__title type__three">
                     <div class="module__number">${moduleNumber}.</div> ${data[moduleIndex].title}
                 </div>
                 <div class="item__name">${checkItemPicked()}</div>
-            </div>
-            <div class="module__type__one__nav__right">
+            
+            <!-- <div class="module__type__three__nav__right"> -->
                 <div class="thumbnail"><img src="${pickedItemThumbnail()}" alt="" class="thumbnail-img"></div>
                 <div class="module__step__type">${data[moduleIndex].moduleType}</div>
-            </div>
+            <!-- </div> -->
         </div>
         </article>
         
@@ -91,7 +89,7 @@ const moduleNumber = moduleIndex+1;
         
         <article class="module__box module__type__two">
         <div class="module__nav module__type__two__nav">
-            <div class="module__title">
+            <div class="module__title type__two">
                 <div class="module__number">${moduleNumber}.</div> ${data[moduleIndex].title}
             </div>
             <div class="module__step__type">Wybieram</div>
@@ -114,9 +112,9 @@ const moduleNumber = moduleIndex+1;
     if (data[moduleIndex].moduleType === moduleTypes[0]) {
         return `
         
-        <article class="module__box module__type__three">
-            <div class="module__nav module__type__three__nav">
-                <div class="module__title">
+        <article class="module__box module__type__one">
+            <div class="module__nav module__type__one__nav">
+                <div class="module__title type__one">
                     <div class="module__number">${moduleIndex+1}.</div> ${data[moduleIndex].title}
                 </div>
                 <div class="module__step__type">Wybierz</div>
@@ -127,13 +125,56 @@ const moduleNumber = moduleIndex+1;
 
 }
 
-data.forEach(module => {
-    markup += generateModuleMarkup(data.indexOf(module));;
+const generateHTML = _ => {
+
+    let markup = '';
+
+    data.forEach(module => {
+        markup += generateModuleMarkup(data.indexOf(module));;
+    })
+
+    productConfigurator.innerHTML = `${markup}`
+}
+
+
+generateHTML();
+
+productConfigurator.addEventListener('click', event => {
+
+// Module's visibility
+
+    let modulesArr = [];
+
+    if (event.target.classList.contains("module__title") || event.target.classList.contains("module__step__type")) {
+
+        modulesArr = [...event.target.parentNode.parentNode.parentNode.children];
+
+        const moduleIndex = modulesArr.indexOf(event.target.parentNode.parentNode)
+
+        for (let elem of data) {
+
+            if (elem.edited === true && elem.moduleType !== moduleTypes[0]) {
+                elem.moduleType = moduleTypes[2]
+            }
+
+            else (elem.moduleType = moduleTypes[0])
+        }
+
+        if (data[moduleIndex].moduleType === moduleTypes[0]) {
+            data[moduleIndex].moduleType = moduleTypes[1]
+        }
+
+        if (data[moduleIndex].moduleType === moduleTypes[2]) {
+            data[moduleIndex].moduleType = moduleTypes[1]
+        }
+
+        generateHTML();
+    }
 })
 
-productConfigurator.innerHTML = `
 
-${markup}
-
-
-`
+const moduleTitleEls = [...document.querySelectorAll(".module__title")];
+const moduleStepTypeEl = document.querySelector(".module__step__type");
+const filterListEl = document.querySelector(".filter__list");
+const filterItemEls = document.querySelectorAll(".filter__item");
+const itemEls = document.querySelectorAll(".item");

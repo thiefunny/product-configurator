@@ -14,6 +14,7 @@
 .module__title {
     font-size: var(--module-title-size);
     font-weight: var(--font-bold);
+    cursor: pointer;
 }
 
 .module__number {
@@ -25,5 +26,6 @@
     font-size: var(--module-step-type-size);
     font-weight: var(--font-bold);
     text-transform: uppercase;
+    cursor: pointer;
 }
 
