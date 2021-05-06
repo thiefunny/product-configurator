@@ -16,6 +16,10 @@
     margin: 1rem;
 }
 
+body {
+    /* position: relative; */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -24,4 +28,8 @@
 
 .item__name {
     font-size: var(--item-name-size);
+}
+
+.hidden {
+    display: none;
 }
