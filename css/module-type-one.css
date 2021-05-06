@@ -1,0 +1,6 @@
+.module__type__one__nav__right {
+    width: 27%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

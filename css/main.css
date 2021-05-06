@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+:root {
+    font-family: Lato;
+    --font-normal: 400;
+    --font-bold: 700;
+    --module-title-size: 1.2rem;
+    --module-step-type-size: 0.8rem;
+    --item-name-size: 0.9rem;
+    --color-cta: blue;
+    --color-black: #000;
+    --color-hover: green;
+    --color-box-border: #e2e2e2;
+    --color-step-type: red;
+    margin: 1rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.item__name {
+    font-size: var(--item-name-size);
+}
