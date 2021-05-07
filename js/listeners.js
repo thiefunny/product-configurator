@@ -1,9 +1,16 @@
 import {
     chooseItem
 } from './choose-item.js'
+
 import {
     moduleSwitch
 } from './module-switch.js'
+
+import {
+    enlargeImage
+} from './enlarge-image.js'
+
+// Event listeners for all required elements
 
 export const listeners = _ => {
 
@@ -30,7 +37,7 @@ export const listeners = _ => {
         })
     }
 
-    // Filter by CSS display
+    // Filtering items by CSS display
 
     for (let filterItem of filterItemEls) {
 
@@ -73,7 +80,6 @@ export const listeners = _ => {
 
     // console.log(thumbnails)
 
-
     for (let thumbnail of thumbnails) {
 
         thumbnail.addEventListener('click', event => {
@@ -91,19 +97,20 @@ export const listeners = _ => {
         })
     }
 
-    // Enlarge image
+    // Enlarge image after clicking on loupe
 
     for (let loupe of loupes) {
 
         loupe.addEventListener('click', event => {
 
-            const bigImageContainerEl = document.querySelector(".big__image__container")
-            const closeGalleryEl = document.querySelector(".close__gallery")
-            bigImageContainerEl.classList.remove("hidden");
+            let selectedItemIndex = allItems.indexOf(event.target.parentNode.parentNode);
 
-            closeGalleryEl.onclick = function () {
-                bigImageContainerEl.classList.add("hidden");
-            }
+            // console.log(selectedItemIndex)
+
+            let moduleIndex = modulesArr.indexOf(event.target.parentNode.parentNode.parentNode.parentNode.parentNode);
+
+            enlargeImage(event, moduleIndex, selectedItemIndex)
+
         })
     }
 }

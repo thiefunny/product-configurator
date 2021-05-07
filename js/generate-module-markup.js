@@ -11,6 +11,8 @@ import {
     selectedItemThumbnail
 } from './selected-item-thumbnail.js'
 
+// Generate modules markups based on users choice
+
 export const generateModuleMarkup = moduleIndex => {
 
     const moduleNumber = moduleIndex + 1;

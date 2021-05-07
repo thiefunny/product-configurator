@@ -11,10 +11,12 @@ import {
     listeners
 } from './listeners.js'
 
+
+// Change modules appearance based on clicked module
+
 export const moduleSwitch = event => {
 
     const modulesArr = [...document.querySelectorAll('.module__box')];
-
 
     const moduleIndex = modulesArr.indexOf(event.target.parentNode.parentNode);
 

@@ -1,3 +1,5 @@
+// Modules and Products Objects
+
 export const moduleTypes = [
     'wybierz', 'wybieram', 'zmień'
 ]

@@ -6,8 +6,9 @@ import {
     generateModuleMarkup
 } from './generate-module-markup.js'
 
+// Generate HTML markup in <main class="product__configurator"> based on modules markups
+
 const productConfigurator = document.querySelector('.product__configurator');
-let filterItemEls, modulesArr, allItems, itemChildren, thumbnails, loupes;
 
 export const generateHTML = _ => {
 
@@ -18,12 +19,5 @@ export const generateHTML = _ => {
     })
 
     productConfigurator.innerHTML = `${markup}`
-
-    filterItemEls = document.querySelectorAll(".filter__item");
-    modulesArr = [...document.querySelectorAll('.module__box')];
-    allItems = [...document.getElementsByClassName(`item`)]
-    itemChildren = [...document.getElementsByClassName(`item__child`)]
-    thumbnails = [...document.getElementsByClassName(`thumbnail__img`)]
-    loupes = [...document.getElementsByClassName(`item__image__loupe`)]
 
 }

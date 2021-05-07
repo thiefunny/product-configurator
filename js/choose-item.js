@@ -10,6 +10,8 @@ import {
     listeners
 } from './listeners.js'
 
+// Change specific product/item Object properties based on chosen product
+
 export const chooseItem = (event, moduleIndex, selectedItemIndex) => {
 
     // console.log(data[moduleIndex])
