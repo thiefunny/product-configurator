@@ -12,4 +12,4 @@ Github Pages: https://thiefunny.github.io/product-configurator/
 * HTML5, CSS3, Vanilla Javascript
 
 ## Setup
-* No setup needed to run, just copy files to your server or folder on desktop and run index.html
+* Run online or via e.g. VCS Live Server
