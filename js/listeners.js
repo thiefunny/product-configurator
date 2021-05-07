@@ -14,7 +14,7 @@ import {
 
 export const listeners = _ => {
 
-    const moduleTitleEls = [...document.querySelectorAll(".module__title")];
+    const moduleTitleEls = [...document.querySelectorAll(".module__title.selectable")];
     const moduleStepTypeEls = [...document.querySelectorAll(".module__step__type")];
     const filterItemEls = document.querySelectorAll(".filter__item");
     const modulesArr = [...document.querySelectorAll('.module__box')];
@@ -27,7 +27,7 @@ export const listeners = _ => {
 
     for (let moduleTitle of moduleTitleEls) {
         moduleTitle.addEventListener('click', event => {
-            moduleSwitch(event)
+            moduleSwitch(event);
         })
     }
 
@@ -69,30 +69,17 @@ export const listeners = _ => {
 
             let selectedItemIndex = allItems.indexOf(event.target.parentNode);
             let moduleIndex = modulesArr.indexOf(event.target.parentNode.parentNode.parentNode.parentNode);
-            chooseItem(event, moduleIndex, selectedItemIndex)
-            // console.log(selectedItemIndex)
-            // console.log(moduleIndex)
-
-
-
+            chooseItem(moduleIndex, selectedItemIndex)
         })
     }
-
-    // console.log(thumbnails)
 
     for (let thumbnail of thumbnails) {
 
         thumbnail.addEventListener('click', event => {
 
             let selectedItemIndex = allItems.indexOf(event.target.parentNode.parentNode);
-
-            // console.log(selectedItemIndex)
-
             let moduleIndex = modulesArr.indexOf(event.target.parentNode.parentNode.parentNode.parentNode.parentNode);
-
-            // console.log(moduleIndex)
-
-            chooseItem(event, moduleIndex, selectedItemIndex)
+            chooseItem(moduleIndex, selectedItemIndex)
 
         })
     }
@@ -104,13 +91,9 @@ export const listeners = _ => {
         loupe.addEventListener('click', event => {
 
             let selectedItemIndex = allItems.indexOf(event.target.parentNode.parentNode);
-
-            // console.log(selectedItemIndex)
-
             let moduleIndex = modulesArr.indexOf(event.target.parentNode.parentNode.parentNode.parentNode.parentNode);
-
-            enlargeImage(event, moduleIndex, selectedItemIndex)
-
+            enlargeImage(moduleIndex, selectedItemIndex)
+            
         })
     }
 }

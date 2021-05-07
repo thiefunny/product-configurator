@@ -4,7 +4,7 @@ export const moduleTypes = [
     'wybierz', 'wybieram', 'zmień'
 ]
 
-export const itemTypes = ['pierwsze', 'parzyste', 'nieparzyste', 'ładne', 'brzydkie', 'małe', 'wielkie'];
+export const itemTypes = ['parzyste', 'nieparzyste', 'ładne', 'brzydkie', 'we wzorki lub gradienty', 'a-c', 'd-f', 'g-h', 'i-k'];
 
 export const data = [{
         title: 'Liczby',
@@ -26,21 +26,21 @@ export const data = [{
             },
             {
                 itemName: 'Liczba 3',
-                itemType: itemTypes[2],
+                itemType: itemTypes[1],
                 itemThumbnailURL: 'img/thumbs/3.png',
                 itemImageURL: 'img/3.png',
                 itemSelected: false
             },
             {
                 itemName: 'Liczba 4',
-                itemType: itemTypes[2],
+                itemType: itemTypes[0],
                 itemThumbnailURL: 'img/thumbs/4.png',
                 itemImageURL: 'img/4.png',
                 itemSelected: false
             },
             {
                 itemName: 'Liczba 5',
-                itemType: itemTypes[2],
+                itemType: itemTypes[1],
                 itemThumbnailURL: 'img/thumbs/5.png',
                 itemImageURL: 'img/5.png',
                 itemSelected: false
@@ -54,14 +54,14 @@ export const data = [{
             },
             {
                 itemName: 'Liczba 7',
-                itemType: itemTypes[2],
+                itemType: itemTypes[1],
                 itemThumbnailURL: 'img/thumbs/7.png',
                 itemImageURL: 'img/7.png',
                 itemSelected: false
             },
             {
                 itemName: 'Liczba 8',
-                itemType: itemTypes[1],
+                itemType: itemTypes[0],
                 itemThumbnailURL: 'img/thumbs/8.png',
                 itemImageURL: 'img/8.png',
                 itemSelected: false
@@ -75,7 +75,7 @@ export const data = [{
             },
             {
                 itemName: 'Liczba 10',
-                itemType: itemTypes[1],
+                itemType: itemTypes[0],
                 itemThumbnailURL: 'img/thumbs/10.png',
                 itemImageURL: 'img/10.png',
                 itemSelected: false
@@ -89,7 +89,7 @@ export const data = [{
             },
             {
                 itemName: 'Liczba 12',
-                itemType: itemTypes[1],
+                itemType: itemTypes[0],
                 itemThumbnailURL: 'img/thumbs/12.png',
                 itemImageURL: 'img/12.png',
                 itemSelected: false
@@ -102,14 +102,14 @@ export const data = [{
         edited: false,
         items: [{
                 itemName: 'Kolor 1',
-                itemType: itemTypes[1],
+                itemType: itemTypes[2],
                 itemThumbnailURL: 'img/thumbs/kolor_1.png',
                 itemImageURL: 'img/kolor_1.png',
                 itemSelected: false
             },
             {
                 itemName: 'Item 2',
-                itemType: itemTypes[0],
+                itemType: itemTypes[2],
                 itemThumbnailURL: 'img/thumbs/kolor_2.png',
                 itemImageURL: 'img/kolor_2.png',
                 itemSelected: false
@@ -130,7 +130,7 @@ export const data = [{
             },
             {
                 itemName: 'Kolor 5',
-                itemType: itemTypes[2],
+                itemType: itemTypes[3],
                 itemThumbnailURL: 'img/thumbs/kolor_5.png',
                 itemImageURL: 'img/kolor_5.png',
                 itemSelected: false
@@ -144,9 +144,30 @@ export const data = [{
             },
             {
                 itemName: 'Kolor 7',
-                itemType: itemTypes[2],
+                itemType: itemTypes[3],
                 itemThumbnailURL: 'img/thumbs/kolor_7.png',
                 itemImageURL: 'img/kolor_7.png',
+                itemSelected: false
+            },
+            {
+                itemName: 'Kolor 8',
+                itemType: itemTypes[4],
+                itemThumbnailURL: 'img/thumbs/kolor_8.png',
+                itemImageURL: 'img/kolor_8.png',
+                itemSelected: false
+            },
+            {
+                itemName: 'Kolor 9',
+                itemType: itemTypes[4],
+                itemThumbnailURL: 'img/thumbs/kolor_9.png',
+                itemImageURL: 'img/kolor_9.png',
+                itemSelected: false
+            },
+            {
+                itemName: 'Kolor 10',
+                itemType: itemTypes[4],
+                itemThumbnailURL: 'img/thumbs/kolor_10.png',
+                itemImageURL: 'img/kolor_10.png',
                 itemSelected: false
             },
         ],
@@ -157,79 +178,79 @@ export const data = [{
         edited: false,
         items: [{
                 itemName: 'Litera "a"',
-                itemType: itemTypes[1],
+                itemType: itemTypes[5],
                 itemThumbnailURL: 'img/thumbs/a.png',
-                itemImageURL: '',
+                itemImageURL: 'img/thumbs/a.png',
                 itemSelected: false
             },
             {
                 itemName: 'Litera "b"',
-                itemType: itemTypes[0],
+                itemType: itemTypes[5],
                 itemThumbnailURL: 'img/thumbs/b.png',
-                itemImageURL: '',
+                itemImageURL: 'img/b.png',
                 itemSelected: false
             },
             {
                 itemName: 'Litera "c"',
-                itemType: itemTypes[2],
+                itemType: itemTypes[5],
                 itemThumbnailURL: 'img/thumbs/c.png',
-                itemImageURL: '',
+                itemImageURL: 'img/c.png',
                 itemSelected: false
             },
             {
                 itemName: 'Litera "d"',
-                itemType: itemTypes[2],
+                itemType: itemTypes[6],
                 itemThumbnailURL: 'img/thumbs/d.png',
-                itemImageURL: '',
+                itemImageURL: 'img/d.png',
                 itemSelected: false
             },
             {
                 itemName: 'Litera "e"',
-                itemType: itemTypes[2],
+                itemType: itemTypes[6],
                 itemThumbnailURL: 'img/thumbs/e.png',
-                itemImageURL: '',
+                itemImageURL: 'img/e.png',
                 itemSelected: false
             },
             {
                 itemName: 'Litera "f"',
-                itemType: itemTypes[2],
+                itemType: itemTypes[6],
                 itemThumbnailURL: 'img/thumbs/f.png',
-                itemImageURL: '',
+                itemImageURL: 'img/f.png',
                 itemSelected: false
             },
             {
                 itemName: 'Litera "g"',
-                itemType: itemTypes[2],
+                itemType: itemTypes[7],
                 itemThumbnailURL: 'img/thumbs/g.png',
-                itemImageURL: '',
+                itemImageURL: 'img/g.png',
                 itemSelected: false
             },
             {
                 itemName: 'Litera "h"',
-                itemType: itemTypes[2],
+                itemType: itemTypes[7],
                 itemThumbnailURL: 'img/thumbs/h.png',
-                itemImageURL: '',
+                itemImageURL: 'img/h.png',
                 itemSelected: false
             },
             {
                 itemName: 'Litera "i"',
-                itemType: itemTypes[2],
+                itemType: itemTypes[8],
                 itemThumbnailURL: 'img/thumbs/i.png',
-                itemImageURL: '',
+                itemImageURL: 'img/i.png',
                 itemSelected: false
             },
             {
                 itemName: 'Litera "j"',
-                itemType: itemTypes[2],
+                itemType: itemTypes[8],
                 itemThumbnailURL: 'img/thumbs/j.png',
-                itemImageURL: '',
+                itemImageURL: 'img/j.png',
                 itemSelected: false
             },
             {
                 itemName: 'Litera "k"',
-                itemType: itemTypes[2],
+                itemType: itemTypes[8],
                 itemThumbnailURL: 'img/thumbs/k.png',
-                itemImageURL: '',
+                itemImageURL: 'img/k.png',
                 itemSelected: false
             },
         ],

@@ -7,5 +7,5 @@ import {
 export const selectedItemThumbnail = moduleIndex => {
     let selectedItem;
     selectedItem = data[moduleIndex].items.find(item => item.itemSelected === true)
-    return selectedItem.itemThumbnailURL
+    return [selectedItem.itemThumbnailURL, selectedItem.itemName]
 }

@@ -43,9 +43,9 @@ export const generateModuleMarkup = moduleIndex => {
         data[moduleIndex].items.forEach(item => {
             gridMarkup += `
             <li class="item ${item.itemType}">
-                <div class="item__image item__child">
-                    <img src="${item.itemThumbnailURL}" alt="" class="thumbnail__img">
-                <img src="img/loupe.svg" alt="" class="item__image__loupe">
+                <div class="item__image">
+                    <img src="${item.itemThumbnailURL}" alt="${item.itemName}" class="thumbnail__img">
+                <img src="img/loupe.svg" alt="powiększ miniaturkę" class="item__image__loupe">
                 </div>
                 <div class="item__title item__child">${item.itemName}</div>
             </li>`
@@ -60,16 +60,13 @@ export const generateModuleMarkup = moduleIndex => {
         <article class="module__box module__type__three">
         <div class="module__nav module__type__three__nav">
             
-                <div class="module__title type__three">
+                <div class="module__title selectable">
                     <div class="module__number">${moduleNumber}.</div> ${data[moduleIndex].title}
                 <div class="item__name">${checkItemSelected(moduleIndex)}</div>
+        </div>
+                <div class="thumbnail"><img src="${selectedItemThumbnail(moduleIndex)[0]}" alt="${selectedItemThumbnail(moduleIndex)[1]}" class="thumbnail__img"></div>
+                <div class="module__step__type selectable">${data[moduleIndex].moduleType}</div>
 
-                </div>
-            
-            <!-- <div class="module__type__three__nav__right"> -->
-                <div class="thumbnail"><img src="${selectedItemThumbnail(moduleIndex)}" alt="" class="thumbnail__img"></div>
-                <div class="module__step__type">${data[moduleIndex].moduleType}</div>
-            <!-- </div> -->
         </div>
         </article>
         
@@ -107,10 +104,10 @@ export const generateModuleMarkup = moduleIndex => {
         
         <article class="module__box module__type__one">
             <div class="module__nav module__type__one__nav">
-                <div class="module__title type__one">
+                <div class="module__title selectable">
                     <div class="module__number">${moduleIndex+1}.</div> ${data[moduleIndex].title}
                 </div>
-                <div class="module__step__type">Wybierz</div>
+                <div class="module__step__type selectable">Wybierz</div>
             </div>
         </article>
         `

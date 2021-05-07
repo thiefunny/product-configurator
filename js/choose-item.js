@@ -12,13 +12,12 @@ import {
 
 // Change specific product/item Object properties based on chosen product
 
-export const chooseItem = (event, moduleIndex, selectedItemIndex) => {
+export const chooseItem = (moduleIndex, selectedItemIndex) => {
 
-    // console.log(data[moduleIndex])
-    // console.log(data[moduleIndex].items)
+    let items = data[moduleIndex].items;
 
-    for (let elem of data[moduleIndex].items) {
-        elem.itemSelected = false;
+    for (let item of items) {
+        item.itemSelected = false;
     }
 
     data[moduleIndex].items[selectedItemIndex].itemSelected = true;

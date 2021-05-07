@@ -1,3 +1,5 @@
+/* Main CSS */
+
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 :root {
@@ -10,9 +12,9 @@
     --grid-item-name-size: 0.8rem;
     --color-cta: blue;
     --color-black: #000;
-    --color-hover: green;
-    --color-hover-item: green;
-    --color-hover-loupe: orange;
+    --color-hover: rgb(24, 134, 92);
+    --color-hover-item: rgba(0, 0, 0, 0.3);;
+    --color-hover-loupe: rgba(255, 255, 255, 0.6);
     --color-box-border: #e2e2e2;
     --color-step-type: red;
     margin: 1rem;

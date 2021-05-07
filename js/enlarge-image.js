@@ -6,7 +6,7 @@ import {
 
 const bigImageContainerEl = document.querySelector(".big__image__container")
 
-export const enlargeImage = (event, moduleIndex, selectedItemIndex) => {
+export const enlargeImage = (moduleIndex, selectedItemIndex) => {
 
             bigImageContainerEl.innerHTML = `
             
@@ -25,11 +25,10 @@ export const enlargeImage = (event, moduleIndex, selectedItemIndex) => {
                 bigImageContainerEl.classList.add("hidden");
             }
 
-            // document.addEventListener('keypress', event => {
-            //     console.log(event)
-            //     if (event.key === 'Escape') {
-            //         bigImageContainerEl.classList.add("hidden");
-            //     }
-            // })
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape') {
+                    bigImageContainerEl.classList.add("hidden");
+                }
+            })
 
         }

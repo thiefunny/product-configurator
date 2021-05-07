@@ -1,3 +1,5 @@
+/* Product grid in open module */
+
 .module__content {
     margin: 1rem 0 1rem 1rem;
 }
@@ -30,13 +32,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -40%);
-    width: 1.5rem;
-
+    width: 1.4rem;
 }
 
 .item__image__loupe:hover {
     background-color: var(--color-hover-loupe);
-    border-radius: 50%;
+    border-radius: 20%;
 }
 
 .item__title {
