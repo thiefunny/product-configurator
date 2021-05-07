@@ -12,11 +12,16 @@
     text-align: center;
     cursor: pointer;
     margin: 1rem 1rem 0 0;
-    /* display: inline; */
 }
 
 .item__image {
     position: relative;
+    margin-bottom: 0.4rem;
+}
+
+.item:hover {
+    outline: 1px solid var(--color-hover-item);
+    outline-offset: 0.3rem;
 }
 
 .item__image__loupe {
@@ -24,11 +29,14 @@
     z-index: 1;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -40%);
+    width: 1.5rem;
+
 }
 
-img.item__image__loupe {
-    width: 1rem;
+.item__image__loupe:hover {
+    background-color: var(--color-hover-loupe);
+    border-radius: 50%;
 }
 
 .item__title {

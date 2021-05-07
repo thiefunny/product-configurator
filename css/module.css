@@ -33,3 +33,7 @@
     margin-left: auto;
     padding-right: 2rem;
 }
+
+.module__title:hover, .module__step__type:hover {
+    color: var(--color-hover)
+}

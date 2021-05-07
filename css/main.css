@@ -11,13 +11,11 @@
     --color-cta: blue;
     --color-black: #000;
     --color-hover: green;
+    --color-hover-item: green;
+    --color-hover-loupe: orange;
     --color-box-border: #e2e2e2;
     --color-step-type: red;
     margin: 1rem;
-}
-
-body {
-    /* position: relative; */
 }
 
 * {
