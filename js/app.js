@@ -3,6 +3,7 @@ import {
     moduleTypes
 } from './modules-data.js'
 
+let moduleTitleEls, moduleStepTypeEls, filterItemEls, modulesArr, allItems, itemChildren, thumbnails, loupes;
 
 const productConfigurator = document.querySelector('.product__configurator');
 
@@ -132,103 +133,148 @@ const generateHTML = _ => {
     })
 
     productConfigurator.innerHTML = `${markup}`
+
+    moduleTitleEls = [...document.querySelectorAll(".module__title")];
+    moduleStepTypeEls = [...document.querySelectorAll(".module__step__type")];
+    filterItemEls = document.querySelectorAll(".filter__item");
+    modulesArr = [...document.querySelectorAll('.module__box')];
+    allItems = [...document.getElementsByClassName(`item`)]
+    itemChildren = [...document.getElementsByClassName(`item__child`)]
+    thumbnails = [...document.getElementsByClassName(`thumbnail__img`)]
+    loupes = [...document.getElementsByClassName(`item__image__loupe`)]
+
 }
 
 
-generateHTML();
+const moduleSwitch = event => {
 
-productConfigurator.addEventListener('click', event => {
+    const moduleIndex = modulesArr.indexOf(event.target.parentNode.parentNode);
 
-    // console.log(event.target)
-
-    const modulesArr = [...document.querySelectorAll('.module__box')];
-    const allItems = [...document.getElementsByClassName(`item`)]
-
-    // Module's visibility
-
-    if (event.target.classList.contains("module__title") || event.target.classList.contains("module__step__type")) {
-
-        const moduleIndex = modulesArr.indexOf(event.target.parentNode.parentNode)
-
-        for (let elem of data) {
-
-            if (elem.edited === true && elem.moduleType !== moduleTypes[0]) {
-                elem.moduleType = moduleTypes[2]
-            } else(elem.moduleType = moduleTypes[0])
+    for (let elem of data) {
+        if (elem.edited === true && elem.moduleType !== moduleTypes[0]) {
+            elem.moduleType = moduleTypes[2]
+        } else {
+            elem.moduleType = moduleTypes[0]
         }
+    }
 
-        if (data[moduleIndex].moduleType === moduleTypes[0]) {
-            data[moduleIndex].moduleType = moduleTypes[1]
-        }
+    if (data[moduleIndex].moduleType === moduleTypes[0]) {
+        data[moduleIndex].moduleType = moduleTypes[1]
+    }
 
-        if (data[moduleIndex].moduleType === moduleTypes[2]) {
-            data[moduleIndex].moduleType = moduleTypes[1]
-        }
+    if (data[moduleIndex].moduleType === moduleTypes[2]) {
+        data[moduleIndex].moduleType = moduleTypes[1]
+    }
 
-        generateHTML();
+    generateHTML();
+    listeners();
+
+}
+
+const chooseItem = (event, moduleIndex, selectedItemIndex) => {
+
+    // console.log(data[moduleIndex])
+    // console.log(data[moduleIndex].items)
+
+    for (let elem of data[moduleIndex].items) {
+        elem.itemSelected = false;
+    }
+
+    data[moduleIndex].items[selectedItemIndex].itemSelected = true;
+    data[moduleIndex].edited = true;
+    data[moduleIndex].moduleType = moduleTypes[2];
+
+    generateHTML();
+    listeners();
+
+}
+
+const listeners = _ => {
+
+    // Switching modules
+
+    for (let moduleTitle of moduleTitleEls) {
+        moduleTitle.addEventListener('click', event => {
+            moduleSwitch(event)
+        })
+    }
+
+    for (let moduleStepType of moduleStepTypeEls) {
+        moduleStepType.addEventListener('click', event => {
+            moduleSwitch(event)
+        })
     }
 
     // Filter by CSS display
 
-    if (event.target.classList.contains("filter__item")) {
-        const filterItems = [...event.target.parentNode.children];
+    for (let filterItem of filterItemEls) {
+        filterItem.addEventListener('click', event => {
 
-        const typeFiltered = event.target.innerHTML;
-        const filteredItems = [...document.getElementsByClassName(`item ${typeFiltered}`)]
+            const typeFiltered = event.target.innerHTML;
+            const filteredItems = [...document.getElementsByClassName(`item ${typeFiltered}`)]
 
-        allItems.forEach(item => item.classList.add("hidden"));
-        filteredItems.forEach(item => item.classList.remove("hidden"));
+            allItems.forEach(item => item.classList.add("hidden"));
+            filteredItems.forEach(item => item.classList.remove("hidden"));
 
-        if (typeFiltered === 'Wszystkie') {
-            allItems.forEach(item => item.classList.remove("hidden"));
-
-        }
+            if (typeFiltered === 'Wszystkie') {
+                allItems.forEach(item => item.classList.remove("hidden"));
+            }
+        })
     }
 
     // Select item
 
-    if (event.target.classList.contains("item__child")) {
-        const selectedItemIndex = allItems.indexOf(event.target.parentNode);
-        const moduleIndex = modulesArr.indexOf(event.target.parentNode.parentNode.parentNode.parentNode);
-        const selectedItemEl = event.target.parentNode;
+    for (let itemChild of itemChildren) {
 
-        for (let elem of data[moduleIndex].items) {
-            elem.itemSelected = false;
-        }
-        data[moduleIndex].items[selectedItemIndex].itemSelected = true;
-        data[moduleIndex].edited = true;
-        data[moduleIndex].moduleType = moduleTypes[2];
-        generateHTML();
+        itemChild.addEventListener('click', event => {
 
-    } else if (event.target.classList.contains("thumbnail__img")) {
-        const selectedItemIndex = allItems.indexOf(event.target.parentNode.parentNode);
-        const moduleIndex = modulesArr.indexOf(event.target.parentNode.parentNode.parentNode.parentNode.parentNode);
+            let selectedItemIndex = allItems.indexOf(event.target.parentNode);
+            let moduleIndex = modulesArr.indexOf(event.target.parentNode.parentNode.parentNode.parentNode);
+            chooseItem(event, moduleIndex, selectedItemIndex)
+            // console.log(selectedItemIndex)
+            // console.log(moduleIndex)
 
-        for (let elem of data[moduleIndex].items) {
-            elem.itemSelected = false;
-        }
-        data[moduleIndex].items[selectedItemIndex].itemSelected = true;
-        data[moduleIndex].edited = true;
-        data[moduleIndex].moduleType = moduleTypes[2];
-        generateHTML();
 
+
+        })
+    }
+
+    // console.log(thumbnails)
+
+
+    for (let thumbnail of thumbnails) {
+
+        thumbnail.addEventListener('click', event => {
+
+            let selectedItemIndex = allItems.indexOf(event.target.parentNode.parentNode);
+
+            // console.log(selectedItemIndex)
+
+            let moduleIndex = modulesArr.indexOf(event.target.parentNode.parentNode.parentNode.parentNode.parentNode);
+
+            // console.log(moduleIndex)
+
+            chooseItem(event, moduleIndex, selectedItemIndex)
+
+        })
     }
 
     // Enlarge image
 
-    if (event.target.classList.contains("item__image__loupe")) {
-        const bigImageContainerEl = document.querySelector(".big__image__container")
-        const closeGalleryEl = document.querySelector(".close__gallery")
-        bigImageContainerEl.classList.remove("hidden");
-        
-        closeGalleryEl.onclick = function() {bigImageContainerEl.classList.add("hidden");}
+    for (let loupe of loupes) {
 
+        loupe.addEventListener('click', event => {
+
+            const bigImageContainerEl = document.querySelector(".big__image__container")
+            const closeGalleryEl = document.querySelector(".close__gallery")
+            bigImageContainerEl.classList.remove("hidden");
+
+            closeGalleryEl.onclick = function () {
+                bigImageContainerEl.classList.add("hidden");
+            }
+        })
     }
+}
 
-})
-
-const moduleTitleEls = [...document.querySelectorAll(".module__title")];
-const moduleStepTypeEl = document.querySelector(".module__step__type");
-const filterListEl = document.querySelector(".filter__list");
-const filterItemEls = document.querySelectorAll(".filter__item");
-const itemEls = document.querySelectorAll(".item");
+generateHTML();
+listeners();

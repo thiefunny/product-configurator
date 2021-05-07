@@ -2,10 +2,10 @@ export const moduleTypes = [
     'wybierz', 'wybieram', 'zmień'
 ]
 
-export const itemTypes = ['zielone', 'niebieskie', 'żółte'];
+export const itemTypes = ['pierwsze', 'parzyste', 'nieparzyste', 'ładne', 'brzydkie', 'małe', 'wielkie'];
 
 export const data = [{
-        title: 'Moduł 1',
+        title: 'Liczby',
         moduleType: moduleTypes[1],
         edited: false,
         items: [{
@@ -67,7 +67,7 @@ export const data = [{
         ],
     },
     {
-        title: 'Moduł 2',
+        title: 'Kolory',
         moduleType: moduleTypes[0],
         edited: false,
         items: [{
@@ -108,7 +108,7 @@ export const data = [{
         ],
     },
     {
-        title: 'Moduł 3',
+        title: 'Litery',
         moduleType: moduleTypes[0],
         edited: false,
         items: [{
